@@ -1,0 +1,238 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #202020;
+  color: aliceblue;
+  font-size: .925rem;
+
+}
+
+.dash_button{
+  position: relative;
+  left:33% !important;
+}
+
+svg{  
+
+  margin-left: -5%;
+  margin-right: auto;
+
+}
+
+.chart-row{
+  width: 12%;
+
+}
+
+.chart-container {
+  position: relative;
+  margin-left: 480%;
+  margin-top: 5%;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #706f70ac;
+  padding: 16px;
+
+
+}
+.chart-container-2 {
+  position: relative;
+  margin-top: -62%;
+  margin-left: 590%;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #fa43616b;
+  padding: 16px;
+
+}
+
+.chart-container-3 {
+  position: relative;
+  margin-top: -71%;
+  margin-left: 700%;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #735cd36b;
+  padding: 16px;
+
+}
+
+.chart-container-4 {
+  position: relative;
+  margin-top: -20%;
+  margin-left: 0%;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #db98416b;
+  padding: 16px;
+
+}
+
+.chart-container-5 {
+  position: relative;
+  margin-top: -62%;
+  margin-left: 110%;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #d6df5a6b;
+  padding: 16px;
+
+}
+
+.chart-container-6 {
+  position: relative;
+  margin-top: -71%;
+  margin-left: 220%;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #4acfa36b;
+  padding: 16px;
+
+}
+
+
+.chart-container-1-device {
+  position: relative;
+  margin-left: -50%;
+  margin-top: 50%;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #db98416b;
+  padding: 16px;
+
+
+}
+.chart-container-2-device {
+  position: relative;
+  margin-top: -62%;
+  margin-left: 60%;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #d6df5a6b;
+  padding: 16px;
+
+}
+
+.chart-container-3-device {
+  position: relative;
+  margin-top: -71%;
+  margin-left: 170%;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #4acfa36b;
+  padding: 16px;
+
+}
+
+
+.chart-container-wrapper {
+  padding: 8px;
+}
+
+.chart-info-wrapper {
+  flex-shrink: 0;
+  flex-basis: 120px;}
+  
+h2 {
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0 0 8px 0;
+  }
+
+span {
+    color: var(--main-color);
+    font-size: 26px;
+    line-height: 32px;
+    font-weight: 500;
+}
+
+
+.chart{
+  position: absolute;
+  margin-left: 32% !important;
+  margin-top: 3%;
+}
+
+.chart_radial_low{
+  position: absolute;
+  margin-left: 34% !important;
+  margin-top: -4.5%;
+}
+.chart_radial_medium{
+  position: absolute;
+  margin-left: 45% !important;
+  margin-top: -4.5%;
+}
+.chart_radial_high{
+  position: absolute;
+  margin-left: 56% !important;
+  margin-top: -4.5%;
+}
+.chart_radial_critical{
+  position: absolute;
+  margin-left: 67% !important;
+  margin-top: -4.5%;
+}
+
+.vulnerabilityBubble{
+  margin-left: 0%;
+  margin-right: auto;
+  z-index: 999;
+}
+
+.vuln_table{
+  position: relative;
+  margin-top: -30%;
+  margin-left: 35%;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 15px;
+}
+
+*::-webkit-scrollbar-track {
+  background: gray;
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 14px;
+  border: 3px solid var(--primary);
+}
+.text_cvss{
+  color: black;
+  margin-left:-20%;
+  padding: 5%;
+}
+
+.vuln_info{
+  position: absolute;
+  margin-left: 28%;
+  width: 34%;
+  height: 28%;
+  margin-top: -40%;
+}
+.content{
+  padding-left: 5%;
+}
+.device_title{
+  position: absolute;
+  text-align: center;
+  padding-top: 0.3%;  
+  font-size: 26px;
+  top: 8.5%;
+
+}
+.radar_chart{
+  position: absolute;
+  width: 20%;
+  margin-top: -12%;
+  margin-left: 64%;
+}
