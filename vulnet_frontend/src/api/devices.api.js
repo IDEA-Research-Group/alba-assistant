@@ -35,3 +35,5 @@ export const getVulnerability = (id) => devicesApi.get(`/vulnerability/${id}`);
 export const getWeightedAverage = () => devicesApi.get(`/weightedaverage/`);
 
 export const getDeviceWeightedAverage = (device) => devicesApi.get(`/deviceweightedaverage/${device}`);
+
+export const getDeviceModels = () => devicesApi.get(`/devicemodels/`);

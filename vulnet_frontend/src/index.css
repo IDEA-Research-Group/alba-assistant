@@ -10,11 +10,6 @@ body {
 
 }
 
-.dash_button{
-  position: relative;
-  left:33% !important;
-}
-
 svg{  
 
   margin-left: -5%;
@@ -236,3 +231,34 @@ span {
   margin-top: -12%;
   margin-left: 64%;
 }
+
+.devices_button{
+  position: relative;
+  left:2% !important;
+}
+
+.connections_button{
+  position: relative;
+  left: 3%;
+}
+
+.dashboard_button{
+  position: relative;
+  left:60% !important;
+}
+
+.graph_button{
+  position: relative;
+  left:59% !important;
+}
+
+.create_device_button{
+  position: relative;
+  left:27.5% !important;
+}
+
+.create_connection_button{
+  position: relative;
+  left:28.5% !important;
+}
+

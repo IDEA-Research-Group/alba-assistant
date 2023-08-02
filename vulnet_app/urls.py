@@ -6,6 +6,8 @@ from vulnet_app import views
 router = routers.DefaultRouter()
 router.register(r"devices", views.DeviceView, "devices")
 router.register(r"vulnerabilities", views.VulnerabilityView, "vulnerabilities")
+router.register(r"connections", views.ConnectionView, "connections")
+router.register(r"connectionvulnerabilities", views.ConnectionVulnerabilityView, "connectionvulnerabilities")
 
 
 urlpatterns = [
@@ -21,6 +23,12 @@ urlpatterns = [
     path('api/v1/vulnerability/<str:name>/', views.VulnerabilityValues.as_view(), name="vulnerability"),
     path('api/v1/risk/<str:value>/', views.Risk.as_view(), name="risk"),
     path('api/v1/sustainability/<str:value>/', views.Sustainability.as_view(), name="sustainability"),
+    path('api/v1/createconnection/', views.CreateConnection.as_view(), name="createconnection"),
+    path('api/v1/updateconnection/<int:id>/', views.UpdateConnection.as_view(), name="updateconnection"),
+
+
+    path('api/v1/devicemodels/', views.getDeviceModels.as_view(), name="devicemodels"),
+
 
 
 

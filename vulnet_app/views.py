@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .serializers import DeviceSerializer,VulnerabilitySerializer
-from .models import Device,Vulnerability
+from .serializers import DeviceSerializer,VulnerabilitySerializer,ConnectionSerializer,ConnectionVulnerabilitySerializer
+from .models import Device,Vulnerability,Connection,ConnectionVulnerability
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -17,6 +17,14 @@ class DeviceView(viewsets.ModelViewSet):
 class VulnerabilityView(viewsets.ModelViewSet):
     serializer_class = VulnerabilitySerializer
     queryset = Vulnerability.objects.all()
+
+class ConnectionView(viewsets.ModelViewSet):
+    serializer_class = ConnectionSerializer
+    queryset = Connection.objects.all()
+
+class ConnectionVulnerabilityView(viewsets.ModelViewSet):
+    serializer_class = ConnectionVulnerabilitySerializer
+    queryset = ConnectionVulnerability.objects.all()
 
 
 class NdevNvuln(APIView):
@@ -353,4 +361,50 @@ class Sustainability(APIView):
         value = self.kwargs["value"]
         dic ={}
         dic["sustainability"]=value
+        return JsonResponse(dic) 
+    
+    
+class CreateConnection(APIView):
+    def post(self, request, *args, **kwargs):
+        query = request.data
+
+        type= query.get("type")
+
+        first_device= query.get("first_device")
+        second_device= query.get("second_device")
+
+        first_device_object=Device.objects.filter(model=first_device)[0]
+        second_device_object=Device.objects.filter(model=second_device)[0]
+
+        Connection.objects.create(type=type, first_device=first_device_object, second_device=second_device_object)
+
+
+        return Response(status=status.HTTP_200_OK)
+
+class UpdateConnection(APIView):
+    def put(self, request, *args, **kwargs):
+        query = request.data
+
+        id_value = self.kwargs["id"]
+        type= query.get("type")
+
+        first_device= query.get("first_device")
+        second_device= query.get("second_device")
+
+        first_device_object=Device.objects.filter(model=first_device)[0]
+        second_device_object=Device.objects.filter(model=second_device)[0]
+
+        Connection.objects.filter(id=id_value).update(type=type, first_device=first_device_object, second_device=second_device_object)
+
+        return Response(status=status.HTTP_200_OK)
+
+
+class getDeviceModels(APIView):
+    def get(self, request, *args, **kwargs):
+        devices = Device.objects.all()
+        models=[]
+        for device in devices:
+            models.append(device.model)
+        dic ={}
+        dic["models"]=models
         return JsonResponse(dic) 
