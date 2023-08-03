@@ -408,3 +408,44 @@ class getDeviceModels(APIView):
         dic ={}
         dic["models"]=models
         return JsonResponse(dic) 
+    
+class getConnectionGraph(APIView):
+    def get(self, request, *args, **kwargs):
+        connections = Connection.objects.all()
+        first_devices=[]
+        second_devices=[]
+        protocols=[]
+        for con in connections:
+            first_devices.append(con.first_device.model)
+            second_devices.append(con.second_device.model)
+            protocols.append(con.type)
+
+        dic ={}
+        dic["first_devices"]=first_devices
+        dic["second_devices"]=second_devices
+        dic["protocols"]=protocols
+        return JsonResponse(dic) 
+
+    
+class getConnectionProtocols(APIView):
+    def get(self, request, *args, **kwargs):
+        protocols=["WI-FI","Dedicated Wiring","Bluetooth","LoRaWAN","6LoWPAN","Z-Wave","ZigBee","3G","4G","5G","Other"]
+        dic ={}
+        dic["protocols"]=protocols
+        return JsonResponse(dic) 
+    
+class getDeviceTypes(APIView):
+    def get(self, request, *args, **kwargs):
+        types=["Switch","Router","Bridge","Repeater","Modern","Gateway","Firewall","Low-End Sensor","Smart Bulb","Smart Energy Management Device",
+                   "Smart Lock","Smart Security Alarm","High-End Sensor","Smart Security IP Camera","Smart Appliance","Smart TV","Smartphone","Tablet",
+                   "Personal Computer","Smartwatch","Smart Security Hub","Home Assistant Hub","Network Attached Storage (NAS)", "Other"]
+        dic ={}
+        dic["types"]=types
+        return JsonResponse(dic) 
+    
+class getDeviceCapabilities(APIView):
+    def get(self, request, *args, **kwargs):
+        capabilities=["Class 0 (Constrained)","Class 1 (Constrained)","Class 2 (Constrained)","Unconstrained","Other"]
+        dic ={}
+        dic["capabilities"]=capabilities
+        return JsonResponse(dic) 

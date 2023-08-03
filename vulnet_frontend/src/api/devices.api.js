@@ -37,3 +37,7 @@ export const getWeightedAverage = () => devicesApi.get(`/weightedaverage/`);
 export const getDeviceWeightedAverage = (device) => devicesApi.get(`/deviceweightedaverage/${device}`);
 
 export const getDeviceModels = () => devicesApi.get(`/devicemodels/`);
+
+export const getDeviceTypes = () => devicesApi.get(`/devicetypes/`);
+
+export const getDeviceCapabilities = () => devicesApi.get(`/devicapabilities/`);

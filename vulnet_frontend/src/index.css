@@ -7,7 +7,7 @@ body {
   background-color: #202020;
   color: aliceblue;
   font-size: .925rem;
-
+  overflow: hidden;
 }
 
 svg{  
@@ -261,4 +261,3 @@ span {
   position: relative;
   left:28.5% !important;
 }
-

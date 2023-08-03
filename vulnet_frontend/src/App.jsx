@@ -7,6 +7,8 @@ import { ConnectionsPage } from "./pages/ConnectionsPage";
 import { ConnectionsFormPage } from "./pages/ConnectionsFormPage";
 import { DevicesDashboard } from "./pages/DevicesDashboard";
 import { DeviceVulnerabilitiesDashboard } from "./pages/DeviceVulnerabilitiesDashboard";
+import { ConnectionsGraph } from "./pages/ConnectionsGraph";
+
 import { Toaster } from "react-hot-toast";
 
 function App() {
@@ -25,6 +27,7 @@ function App() {
           <Route path="/connections/:id" element={<ConnectionsFormPage />} />
           <Route path="/dashboard" element={<DevicesDashboard />}/>
           <Route path="/dashboard/:id/:vuln_id?" element={<DeviceVulnerabilitiesDashboard />}/>
+          <Route path="/graph" element={<ConnectionsGraph />}/>
 
         </Routes>
         <Toaster />

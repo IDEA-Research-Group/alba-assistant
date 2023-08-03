@@ -1,11 +1,31 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
-import { createDevice, deleteDevice, getDevice, updateDevice } from "../api/devices.api";
+import { createDevice, deleteDevice, getDevice, updateDevice,getDeviceTypes,getDeviceCapabilities} from "../api/devices.api";
 import { toast } from "react-hot-toast";
 
 export function DevicesFormPage() {
   const [isShown, setIsShown] = useState(false);
+  const [device_types, setDeviceTypes] = useState([]);
+  const [device_capab, setDeviceCapab] = useState([]);
+
+  useEffect(() => {
+    async function loadDeviceTypes() {
+      const res = await getDeviceTypes();
+      setDeviceTypes(res.data["types"]);
+    }
+    loadDeviceTypes();
+  }, []);
+
+
+  useEffect(() => {
+    async function loadDeviceCapab() {
+      const res = await getDeviceCapabilities();
+      setDeviceCapab(res.data["capabilities"]);
+    }
+    loadDeviceCapab();
+  }, []);
+
 
   const handleClick = event => {
     setIsShown(current => !current);
@@ -73,23 +93,27 @@ export function DevicesFormPage() {
 
         {errors.model && <span>This field is required</span>}
 
-        <input
+        <select
           type="text"
           placeholder="Type"
           {...register("type", { required: true })}
           className="bg-zinc-700 p-3 rounded-lg block w-full mb-3"
           autoFocus
-        />
+        >
+          {device_types.map((type, index) => (<option key={index} value={type}>{type}</option>))}
+        </select>
 
         {errors.type && <span>This field is required</span>}
 
-        <input
+        <select
           type="text"
           placeholder="Category"
           {...register("category", { required: true })}
           className="bg-zinc-700 p-3 rounded-lg block w-full mb-3"
           autoFocus
-        />
+        >
+          {device_capab.map((capability, index) => (<option key={index} value={capability}>{capability}</option>))}
+        </select>
 
         {errors.category && <span>This field is required</span>}
         <button className="bg-indigo-500 p-3 rounded-lg block w-full mt-3" onClick={handleClick}>

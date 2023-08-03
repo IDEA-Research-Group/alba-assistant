@@ -28,6 +28,11 @@ urlpatterns = [
 
 
     path('api/v1/devicemodels/', views.getDeviceModels.as_view(), name="devicemodels"),
+    path('api/v1/devicetypes/', views.getDeviceTypes.as_view(), name="devicetypes"),
+    path('api/v1/devicapabilities/', views.getDeviceCapabilities.as_view(), name="devicapabilities"),
+    path('api/v1/connectionprotocols/', views.getConnectionProtocols.as_view(), name="connectionprotocols"),
+    path('api/v1/connectiongraph/', views.getConnectionGraph.as_view(), name="connectiongraph"),
+
 
 
 

@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
-import { createConnection, deleteConnection, getConnection, updateConnection } from "../api/connections.api";
+import { createConnection, deleteConnection, getConnection, updateConnection, getConnectionProtocols} from "../api/connections.api";
 import { getDeviceModels} from "../api/devices.api";
 import { toast } from "react-hot-toast";
 
 export function ConnectionsFormPage() {
   const [isShown, setIsShown] = useState(false);
   const [device_models, setDeviceModels] = useState([]);
+  const [conn_protocols, setConnProtocols] = useState([]);
 
 
   useEffect(() => {
@@ -18,6 +19,14 @@ export function ConnectionsFormPage() {
     loadDeviceModels();
   }, []);
 
+
+  useEffect(() => {
+    async function loadConnProtocols() {
+      const res = await getConnectionProtocols();
+      setConnProtocols(res.data["protocols"]);
+    }
+    loadConnProtocols();
+  }, []);
 
 
   const handleClick = event => {
@@ -76,13 +85,15 @@ export function ConnectionsFormPage() {
   return (
     <div className="max-w-xl mx-auto">
       <form onSubmit={onSubmit} className="bg-zinc-800 p-10 rounded-lg mt-2">
-        <input
+        <select
           type="text"
           placeholder="Type"
           {...register("type", { required: true })}
           className="bg-zinc-700 p-3 rounded-lg block w-full mb-3"
           autoFocus
-        />
+          >
+          {conn_protocols.map((protocol, index) => (<option key={index} value={protocol}>{protocol}</option>))}
+          </select>
 
         {errors.model && <span>This field is required</span>}
 
