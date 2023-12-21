@@ -27,17 +27,38 @@ python -m venv venv
   ```
   source venv/bin/activate
   ```
+#### Backend Setup
+
+6. Run migrations:
+  ```
+ python manage.py migrate
+ ```
+7. Start the server:
+  ```
+ python manage.py runserver
+ ```
+The backend will be available at http://localhost:8000.
+
+Rest-API: http://localhost:8000/vulnet/api/v1/
+
 #### Frontend Setup
 
 1. Navigate to the frontend directory:
   ```
   cd vulnet_frontend
   ```
-  
+2. Install frontend dependencies:
+  ```
+  npm install
+  ```
+3. Start the React application:
+  ```
+   npm start
+  ```
 
-3. 
-## Deployment
+The frontend will be available at  http://localhost:5173.
 
-Back-End: http://localhost:8000/vulnet/api/v1/
 
-Front-End: http://localhost:5173
+## License
+
+This project is under the GNU General Public License (GPL) License.
