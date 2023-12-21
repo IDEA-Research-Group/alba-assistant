@@ -1,7 +1,7 @@
 # ALBA-ASSISTANT: Application to improve Security and Sustainable-awareness in Smart Home
 
 
-Alba-Assistant enables users to model their smart home devices and their connections through a graph within the application. Additionally, it retrieves information from various external APIs regarding vulnerabilities, risks, and sustainability values linked to the devices added by the user. Once the information is processed, metrics and graphs are generated and presented to users through dashboards, offering different degrees of details. 
+Alba-Assistant enables users to model their smart home devices and their connections through a graph within the application. Additionally, it retrieves information from various external APIs regarding vulnerabilities, risks, and sustainability values linked to the devices added by the user. Once the information is processed, metrics and graphs are generated and presented to users through dashboards offering different degrees of details. 
 
 Internally, it consists of a Django-based backend that supplies information to a React application via REST API.
 
