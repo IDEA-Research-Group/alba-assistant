@@ -1,7 +1,6 @@
 # ALBA-ASSISTANT: Application to improve Security and Sustainable-awareness in Smart Home
 
-
-
+ALBA-Assistant is presented as a tool that addresses the representation of all devices in a smart home, the automatic acquisition of relevant information about smart devices from external repositories, and the generation of metrics and graphs that inform the user about the current state of the environment.
 
 
 ## Installation
@@ -29,11 +28,11 @@ python -m venv venv
   ```
 #### Backend Setup
 
-6. Run migrations:
+1. Run migrations:
   ```
  python manage.py migrate
  ```
-7. Start the server:
+2. Start the server:
   ```
  python manage.py runserver
  ```
