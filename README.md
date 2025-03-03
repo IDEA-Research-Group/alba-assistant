@@ -54,7 +54,7 @@ Rest-API: http://localhost:8000/vulnet/api/v1/
   ```
 3. Start the React application:
   ```
-   npm start
+   npm run dev
   ```
 
 The frontend will be available at  http://localhost:5173.
